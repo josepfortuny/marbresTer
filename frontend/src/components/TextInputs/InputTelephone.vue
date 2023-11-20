@@ -1,0 +1,68 @@
+<template>
+    <div class="sm:col-span-2">
+        <label
+        for="Número de teléfono"
+        class="block text-sm font-semibold leading-6 text-gray-900">
+        Phone number *
+        </label >
+        <div class="relative mt-2.5">
+            <div class="absolute inset-y-0 left-0 flex items-center">
+                <select
+                    id="country"
+                    name="country"
+                    class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pls-4 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                    v-model="selectedCountry"
+                    @change="emitSelectedCountry"
+                    >
+                    <option value="+34">+34 (Spain)</option>
+                    <option value="+33">+33 (France)</option>
+                    <option value="+81">+351 (Portugal)</option>
+                </select>
+            </div>
+            <input
+            type="tel"
+            name="phone-number"
+            id="phone-number"
+            autocomplete="tel"
+            v-bind="$attrs"
+            v-model="data"
+            class="block w-full rounded-md border-0 px-3.5 py-2 pl-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
+        </div>
+    <div class="mt-2.5" v-if="error">
+      <span class="text-xs flex font-semibold text-red-500">
+        <font-awesome-icon
+          class="w-4 h-4 flex-none text-red-500 mr-1"
+          :icon="['fas-light', 'circle-exclamation']"/>
+        Campo obligatorio!
+      </span>
+    </div>
+    </div>
+</template>
+<script setup>
+import { ref, computed } from "vue";
+
+const props = defineProps({
+  error: {
+    type: Boolean,
+    default: false,
+  }
+});
+
+const selectedCountry = ref("+34"); // Default selected country
+
+const data = ref("");
+
+const emit = defineEmits(["update:modelValue", "selectedCountry"]);
+
+// Emit the selected country when it changes
+const emitSelectedCountry = () => {
+  emit("selectedCountry", selectedCountry.value);
+};
+
+const updateValue = () => {
+  emit("update:modelValue", data);
+};
+
+updateValue();
+</script>

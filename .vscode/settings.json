@@ -1,0 +1,36 @@
+{
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "79",
+        "--preview"
+    ],
+    //"python.sortImports": true,
+    "editor.formatOnSave": true,
+    "[python]": {
+        //"editor.defaultFormatter": "black",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+        }
+    },
+    "python.linting.pylintArgs": [
+        "--disable=C0111,C0209,C0103",
+        "--load-plugins=pylint_django",
+        "--django-settings-module=deupla.settings",
+        "--max-line-length=79"
+    ],
+    "isort.args": [
+        "--profile",
+        "black",
+        "-l",
+        "79"
+    ],
+    "python.envFile": "${workspaceFolder}/.vscode/vscode.env",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    }
+}
