@@ -40,16 +40,16 @@
             >
               <li>
                 <a
-                  href="#"
+                  @click="navigateTo('/servicios')"
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Dashboard</a
+                  >{{ service1Text }}</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  @click="navigateTo('/servicios')"
                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Settings</a
+                  >{{ service2Text }}</a
                 >
               </li>
             </ul>
@@ -96,9 +96,9 @@ let dropdownText = ref("Dropdown"); // Dropdown menu text
 function textToCatalan() {
   homeText.value = "Inici";
   servicesText.value = "Serveis";
-  service1Text.value = "it1";
-  service2Text.value = "it2";
-  service3Text.value = "it3";
+  service1Text.value = "servei 1";
+  service2Text.value = "servei 2";
+  service3Text.value = "servei 3";
   contactText.value = "Contactar";
   dropdownText.value = "Desplegable"; // Dropdown menu text in Catalan
 }
@@ -106,9 +106,9 @@ function textToCatalan() {
 function textToSpanish() {
   homeText.value = "Inicio";
   servicesText.value = "Servicios";
-  service1Text.value = "it1";
-  service2Text.value = "it2";
-  service3Text.value = "it3";
+  service1Text.value = "servicio 1";
+  service2Text.value = "servicio 2";
+  service3Text.value = "servicio 3";
   contactText.value = "Contactar";
   dropdownText.value = "Dropdown"; // Dropdown menu text in Spanish
 }
