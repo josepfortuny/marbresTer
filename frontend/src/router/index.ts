@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import IndexView from "@/views/index.vue";
-import ServiciosView from"@/views/services.vue";
+import ServiciosView from "@/views/services.vue";
 import ContactoView from "@/views/contact.vue";
 import PoliticasPrivacidadView from "@/views/privacyPolitics.vue";
 
@@ -24,7 +24,7 @@ const router = createRouter({
       component: ServiciosView,
     },
     {
-      path: "/cat/serveis",
+      path: "/cat/servicios",
       name: "serveis",
       component: ServiciosView,
     },
