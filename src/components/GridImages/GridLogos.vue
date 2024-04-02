@@ -15,7 +15,7 @@
       
   <script setup>
 import DektonLogo from "@/assets/img/dekton_logo.png";
-import NeoLithLogo from "@/assets/img/NeoLith_logo.png";
+//import NeoLithLogo from "@/assets/img/NeoLith_logo.png";
 import SilestoneLogo from "@/assets/img/Silestone_logo.png";
 import NaturaMiaLogo from "@/assets/img/NaturaMia_logo.png";
 
@@ -24,7 +24,7 @@ const files = [
     source: DektonLogo,
   },
   {
-    source: NeoLithLogo,
+    source: DektonLogo,
   },
   {
     source: SilestoneLogo,
