@@ -14,8 +14,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Change to frontend directory
-      run: ls ; pwd ;  cd frontend ; ls ; pwd
-
+      run: ls
+    
+    - name: a
+      run: pwd
+    - name: b
+      run: ls frontend/ 
 
     - name: Install dependencies
       run: npm install
