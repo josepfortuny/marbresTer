@@ -16,37 +16,10 @@ jobs:
     - name: Change to frontend directory
       run: ls
     
-    - name: a
-      run: pwd
     - name: b
-      run: ls frontend/ 
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run buildname: Build and Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - master  # Set the branch you want to trigger the workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: check before
-      run: ls
-
-    - name: Change to frontend directory
       run: cd frontend
 
-    - name: check after
+    - name: Change
       run: ls
 
     - name: Install dependencies
@@ -54,13 +27,6 @@ jobs:
 
     - name: Build
       run: npm run build
-
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.5  # You can use a different action if preferred
-      with:
-        branch: gh-pages  # Branch to deploy the built assets to
-        folder: dist  # Folder where the built assets are located within the 'frontend' directory
-
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4  # You can use a different action if preferred
