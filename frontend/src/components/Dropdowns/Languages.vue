@@ -10,25 +10,50 @@
 </template>
 
 <script setup>
+import { ref, watch } from "vue";
 import BaseDropdown from "./BaseDropdown.vue";
 import { GlobeAltIcon } from "@heroicons/vue/24/outline";
-import router from "@/router";
-import {useRoute} from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+const router = useRouter();
+const route = useRoute();
 
-function navigateTo(path){
-  currentPath = route.path
-  if (path.includes("/cat")){
-    if (!currentPath.includes("/cat")){
-      router.push("/cat/" + route.path)
+function navigateTo(path) {
+  console.log("path:" + path);
+  let currentPath = route.path;
+  console.log(currentPath);
+  if (path == "/cat/") {
+    currentPlaceholder.value = languages[1].placeholder;
+    if (!currentPath.includes("/cat")) {
+      router.push("/cat" + currentPath);
     }
-  }else{
-    router.push("/")
+  } else if (path == "/") {
+    currentPlaceholder.value = languages[0].placeholder;
+    if (currentPath.includes("/servicios")) {
+      router.push("/servicios");
+    } else if (currentPath.includes("/contactar")) {
+      router.push("/contactar");
+    } else {
+      router.push("/");
+    }
   }
 }
+
 const languages = [
-  { text: "Castellano", placeholder: "ES", click: () => router.navigateTo("/") },
-  { text: "Català", placeholder: "CAT" , borderTop: true ,click: () => router.navigateTo("/cat/"),}
+  { text: "Castellano", placeholder: "ES", click: () => navigateTo("/") },
+  {
+    text: "Català",
+    placeholder: "CAT",
+    borderTop: true,
+    click: () => navigateTo("/cat/"),
+  },
 ];
-let currentPlaceholder = languages[0].placeholder;
+const currentPlaceholder = ref(languages[0].placeholder);
+watch(() => {
+  if (route.path.includes("/cat")) {
+    currentPlaceholder.value = languages[1].placeholder;
+  } else {
+    currentPlaceholder.value = languages[0].placeholder;
+  }
+});
 </script>
   

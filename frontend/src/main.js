@@ -5,11 +5,12 @@ import App from './App.vue'
 import router from "./router";
 import { DefaultLayout } from "./layouts";
 import fontAwesome from "@/plugins/font-awesome";
-/*import { createPinia } from "pinia";
+import Cookies from "js-cookie";
+import { createPinia } from "pinia";
 import { createPersistedStatePlugin } from "pinia-plugin-persistedstate-2";
 
 // Get persistent storage
-//const pinia = createPinia();
+const pinia = createPinia();
 // 
 pinia.use(
   createPersistedStatePlugin({
@@ -24,8 +25,7 @@ pinia.use(
       removeItem: (key) => Cookies.remove(key),
     },
   })
-);*/
-
+);
 
 export const app = createApp(App);
 
