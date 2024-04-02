@@ -22,6 +22,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4  # You can use a different action if preferred
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # Use the Deploy Token
+        #token: ${{ secrets.GITHUB_TOKEN }}  # Use the Deploy Token
         branch: gh-pages  # Branch to deploy the built assets to
         folder: dist  # Folder where the built assets are located within the 'frontend' director
